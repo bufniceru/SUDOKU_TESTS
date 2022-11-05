@@ -188,3 +188,31 @@ class TestCell:
         assert sut.markup.value == EMPTY_SET
         assert sut.coordinates.line is None
         assert sut.coordinates.column is None
+
+    def test_cell_for_equality_all(self):
+
+        sut_one = Cell(3, Coordinates((7, 2)))
+        sut_two = Cell(3, Coordinates((7, 2)))
+
+        assert (sut_one == sut_two) is True
+
+    def test_cell_for_inequality_all(self):
+
+        sut_one = Cell(3, Coordinates((7, 2)))
+        sut_two = Cell(7, Coordinates((4, 5)))
+
+        assert (sut_one == sut_two) is False
+
+    def test_cell_for_inequality_values(self):
+
+        sut_one = Cell(3, Coordinates((7, 2)))
+        sut_two = Cell(7, Coordinates((7, 2)))
+
+        assert (sut_one == sut_two) is False
+
+    def test_cell_for_inequality_oordinates(self):
+
+        sut_one = Cell(3, Coordinates((7, 2)))
+        sut_two = Cell(3, Coordinates((4, 5)))
+
+        assert (sut_one == sut_two) is False

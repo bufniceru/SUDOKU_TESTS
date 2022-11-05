@@ -82,3 +82,31 @@ class TestMarkup:
         sut.fill({2, 5, 7})
 
         assert sut.value == {2, 5, 7}
+
+    def test_markup_for_equality(self):
+
+        sut_one = Markup()
+        sut_one.discard(4)
+        sut_one.discard(7)
+        sut_one.discard(1)
+        sut_two = Markup()
+        sut_two.discard(4)
+        sut_two.discard(7)
+        sut_two.discard(1)
+
+        assert (sut_one == sut_two) is True
+
+    def test_markup_for_inequality(self):
+
+        sut_one = Markup()
+        sut_one.discard(5)
+        sut_one.discard(2)
+        sut_one.discard(8)
+        sut_one.discard(4)
+        sut_two = Markup()
+        sut_two.discard(1)
+        sut_two.discard(9)
+        sut_two.discard(3)
+        sut_two.discard(6)
+
+        assert (sut_one == sut_two) is False

@@ -258,3 +258,17 @@ class TestCoordinates:
         assert sut.column == 6
 
         assert f'{sut}' == '(3:6)'
+
+    def test_coordonates_for_equality(self):
+
+        sut_one = Coordinates((3, 7))
+        sut_two = Coordinates((3, 7))
+
+        assert (sut_one == sut_two) is True
+
+    def test_coordinates_for_inequality(self):
+
+        sut_one = Coordinates((5, 2))
+        sut_two = Coordinates((8, 4))
+
+        assert (sut_one == sut_two) is False
